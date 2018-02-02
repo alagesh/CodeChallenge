@@ -1,6 +1,8 @@
 package com.sandbox.Challenge.services;
 
 import java.util.List;
+import java.util.Map;
+
 import com.sandbox.Challenge.model.NearEarthObject;
 
 /**
@@ -10,6 +12,6 @@ import com.sandbox.Challenge.model.NearEarthObject;
  */
 public interface ApiService {
 	
-	public List<NearEarthObject> getAllNeoForDateRange(String start_date, String end_date);
+	public Map<String, List<NearEarthObject>> getAllNeoForDateRange(String start_date, String end_date);
 
 }
