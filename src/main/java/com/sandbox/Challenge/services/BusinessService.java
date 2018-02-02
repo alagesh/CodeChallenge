@@ -8,8 +8,8 @@ import com.sandbox.Challenge.model.NearEarthObject;
  * @author Alagesh
  *
  */
-public interface ApiService {
+public interface BusinessService {
 	
-	public List<NearEarthObject> getAllNeoForDateRange(String start_date, String end_date);
+	public List<String> getValidLaunchDates(String start_date, String end_date);
 
 }
