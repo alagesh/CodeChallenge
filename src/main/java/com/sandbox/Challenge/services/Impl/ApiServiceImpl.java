@@ -1,6 +1,7 @@
 package com.sandbox.Challenge.services.Impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -21,7 +22,7 @@ public class ApiServiceImpl implements ApiService {
 			"H7V98iNStSoR1hRBQJgIMHWee0W6Pf5qvfyVLk4X";
 			
 	@Override
-	public List<NearEarthObject> getAllNeoForDateRange(String start_date, String end_date) {
+	public Map<String, List<NearEarthObject>> getAllNeoForDateRange(String start_date, String end_date) {
 		
 		/*
 		 * Logic:
