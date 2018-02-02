@@ -1,11 +1,18 @@
 package com.sandbox.Challenge.controller;
 
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+import com.sandbox.Challenge.model.NearEarthObject;
+import com.sandbox.Challenge.model.NeoWrapper;
+import com.sandbox.Challenge.services.BusinessService;
 
 /**
  * Base controller for exposing REST End points 
@@ -14,6 +21,10 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class LaunchController {
+	
+	
+	@Autowired
+	BusinessService businessService;
 	
 	/**
 	 * Logic: Given a start and end date, provides list of safe launch dates 
@@ -28,13 +39,21 @@ public class LaunchController {
 				@RequestParam("start_date") String start_date,
 				@RequestParam("end_date") String end_date
 			){		
-		
 		/*
-		 * Todo : Pending Implementation
+		 * TODO: Data validation
 		 */
 		
-		//Placeholder
-		return Arrays.asList(start_date,end_date);
+		List<String> returnDates = businessService.getValidLaunchDates(start_date, end_date);
+		
+		/*
+		 * TODO: Exception handling
+		 */
+		
+		//Return valid launch dates
+		 return returnDates;
+		
+		
 	}
-
+	
+	
 }
